@@ -1,0 +1,4 @@
+---
+default: --publish-quiet -p allure -f pretty
+html: -f html -o logs/report.html
+allure: --format AllureCucumber::CucumberFormatter --out=logs
