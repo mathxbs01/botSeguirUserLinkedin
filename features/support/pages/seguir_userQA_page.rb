@@ -34,6 +34,8 @@ class Seguir
             if page.has_css?("button", :text => conectar)
                 all("button", :text => conectar)[i].click
                 find('button[aria-label="Enviar agora"]').click 
+
+                i += 1
             else
                 page.execute_script("window.scrollTo(0, document.body.scrollHeight)")
                 find('button[aria-label="Avançar"]').click 
