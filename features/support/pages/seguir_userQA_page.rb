@@ -1,3 +1,13 @@
+def print
+    temp_shot =  page.save_screenshot("logs/temp_screenshot.png")
+
+    Allure.add_attachment(
+        name: "Screenshot",
+        type: Allure::ContentType::PNG,
+        source: File.open(temp_shot),
+   )
+end
+
 class Login
     include Capybara::DSL
 
@@ -33,8 +43,9 @@ class Seguir
         while i <= num
             if page.has_css?("button", :text => conectar)
                 all("button", :text => conectar)[i].click
-                find('button[aria-label="Enviar agora"]').click 
-
+                print
+                find('button[aria-label="Enviar agora"]').click
+                page.execute_script("window.scrollTo(500, 800)") 
                 i += 1
             else
                 page.execute_script("window.scrollTo(0, document.body.scrollHeight)")
