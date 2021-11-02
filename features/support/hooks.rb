@@ -2,6 +2,7 @@ Before do
     @login = Login.new
     @seguir = Seguir.new
     @pesquisar = Pesquisar.new
+    @tela = Tela.new
     page.driver.browser.manage.window.maximize
 end
 

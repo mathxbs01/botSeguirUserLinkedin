@@ -15,5 +15,13 @@ Quando('seleciono para pesquisar por {string}') do |pessoa|
 end
   
 Então('clico para {string} com {int} pessoas') do |conectar, num|
-    @seguir.seguir(conectar, num)
+    @seguir.seguirBuscarUser(conectar, num)
+end
+
+Quando('direciono para tela de Minha Rede') do
+    @tela.minhaRede
+end
+  
+Então('clico para {string} com usuários {string}') do |conectar, user|
+    @seguir.seguirMinhaRede(conectar, user)
 end

@@ -1,11 +1,15 @@
-def print
-    temp_shot =  page.save_screenshot("logs/temp_screenshot.png")
-
-    Allure.add_attachment(
-        name: "Screenshot",
-        type: Allure::ContentType::PNG,
-        source: File.open(temp_shot),
-   )
+module Print
+    module Passos
+        def print
+            temp_shot =  page.save_screenshot("logs/temp_screenshot.png")
+        
+            Allure.add_attachment(
+                name: "Screenshot",
+                type: Allure::ContentType::PNG,
+                source: File.open(temp_shot),
+           )
+        end  
+    end
 end
 
 class Login
@@ -37,20 +41,41 @@ end
 
 class Seguir
     include Capybara::DSL
+    include Print::Passos
 
-    def seguir(conectar, num)
+    def seguirBuscarUser(conectar, num)
         i = 0
         while i <= num
             if page.has_css?("button", :text => conectar)
                 all("button", :text => conectar)[i].click
                 print
                 find('button[aria-label="Enviar agora"]').click
-                page.execute_script("window.scrollTo(500, 800)") 
+                page.execute_script("window.scrollTo(400, 800)") 
                 i += 1
             else
                 page.execute_script("window.scrollTo(0, document.body.scrollHeight)")
                 find('button[aria-label="Avançar"]').click 
             end
         end
+    end
+
+    def seguirMinhaRede(conectar, user)
+        page.execute_script("window.scrollTo(0, document.body.scrollHeight)")
+        i = 0
+        while i <= 10
+            if page.has_css?("span", :text => user)
+                all("button", :text => conectar)[i].click
+                print
+                i += 1
+            end
+        end
+    end
+end
+
+class Tela 
+    include Capybara::DSL
+    
+    def minhaRede
+        find('a[data-control-name="nav_mynetwork"]').click
     end
 end
