@@ -60,10 +60,10 @@ class Seguir
         end
     end
 
-    def seguirMinhaRede(conectar, user)
+    def seguirMinhaRede(conectar, num, user)
         page.execute_script("window.scrollTo(0, document.body.scrollHeight)")
         i = 0
-        while i <= 10
+        while i <= num
             if page.has_css?("span", :text => user)
                 all("button", :text => conectar)[i].click
                 print

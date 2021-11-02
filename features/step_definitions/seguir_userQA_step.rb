@@ -21,7 +21,7 @@ end
 Quando('direciono para tela de Minha Rede') do
     @tela.minhaRede
 end
-  
-Então('clico para {string} com usuários {string}') do |conectar, user|
-    @seguir.seguirMinhaRede(conectar, user)
+
+Então('clico para {string} com {int} usuários {string}') do |conectar, num, user|
+    @seguir.seguirMinhaRede(conectar, num, user)
 end

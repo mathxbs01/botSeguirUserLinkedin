@@ -22,4 +22,4 @@ Funcionalidade: Automatizar envio de conexoes no linkedin
                 Dado que acesso a página de login
                         E submeto o seguinte acesso "matheus.qateste001@gmail.com" e "Bot.123"
                 Quando direciono para tela de Minha Rede
-                Então clico para "Conectar" com usuários "Analista de Teste"
+                Então clico para "Conectar" com 10 usuários "Analista de Teste"
