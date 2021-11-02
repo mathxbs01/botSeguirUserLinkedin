@@ -44,13 +44,14 @@ class Seguir
     include Print::Passos
 
     def seguirBuscarUser(conectar, num)
+        page.execute_script("window.scrollTo(0, 400)")
         i = 0
         while i <= num
             if page.has_css?("button", :text => conectar)
                 all("button", :text => conectar)[i].click
                 print
                 find('button[aria-label="Enviar agora"]').click
-                page.execute_script("window.scrollTo(400, 800)") 
+                page.execute_script("window.scrollTo(400, 800)") #Como scrollar um valor x a cada conectar?
                 i += 1
             else
                 page.execute_script("window.scrollTo(0, document.body.scrollHeight)")
