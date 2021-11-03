@@ -3,6 +3,7 @@ Before do
     @seguir = Seguir.new
     @pesquisar = Pesquisar.new
     @tela = Tela.new
+    @reacao = Reacao.new
     page.driver.browser.manage.window.maximize
 end
 

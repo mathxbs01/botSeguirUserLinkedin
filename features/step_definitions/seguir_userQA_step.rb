@@ -25,3 +25,7 @@ end
 Então('clico para {string} com {int} usuários {string}') do |conectar, num, user|
     @seguir.seguirMinhaRede(conectar, num, user)
 end
+
+Entao('clico em {string} em {int} publicacoes') do |gostei, num|
+    @reacao.gostei(gostei, num)
+end

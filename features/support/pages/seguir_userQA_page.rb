@@ -80,3 +80,26 @@ class Tela
         find('a[data-control-name="nav_mynetwork"]').click
     end
 end
+
+class Reacao
+    include Capybara::DSL
+    include Print::Passos
+
+    def gostei(gostei, num)
+        i = 0
+        while i <= num
+            if page.has_css?("button", :text => gostei)
+                tabela = all('div[class*="feed-shared-social-actions"]')[i]
+                tabela.find('button[aria-label*="Gostar da publicação"]').click
+                sleep 2
+                print
+
+                i += 1
+            else
+                page.execute_script("window.scrollTo(0, document.body.scrollHeight)")[i]
+
+                i += 1 
+            end
+        end
+    end
+end

@@ -1,25 +1,27 @@
 #language: pt
 
-Funcionalidade: Automatizar envio de conexoes no linkedin
+Funcionalidade: Automatizar funcionalidades basicas do Linkedin
         Sendo um usuário do Linkedin
         Quero fazer o login
-        Para acessar o campo de pesquisa
-        Pesquisar os usuários que trabalham na área de QA
-        Seguir os usuários
+        Para seguir usuários e curtir as publicações
+
+        Contexto:
+                Dado que acesso a página de login
+                        E submeto o seguinte acesso "matheus.qateste001@gmail.com" e "Bot.123"
 
         @seguirPorBusca
         Cenario: Seguindo user QA através da busca por usuário.
 
-                Dado que acesso a página de login
-                        E submeto o seguinte acesso "matheus.qateste001@gmail.com" e "Bot.123"
                 Quando pesquiso um usuário "QA Automation"
                         E seleciono para pesquisar por "Pessoas"
                 Então clico para "Conectar" com 5 pessoas
 
         @seguirPorMinhaRede
-        Cenario: Seguindo user QA através da busca por usuário.
+        Cenario: Seguindo user QA através da tela Minha Rede.
 
-                Dado que acesso a página de login
-                        E submeto o seguinte acesso "matheus.qateste001@gmail.com" e "Bot.123"
                 Quando direciono para tela de Minha Rede
                 Então clico para "Conectar" com 10 usuários "Analista de Teste"
+
+        @curtirPub
+        Cenario: Curtindo as publicações da minha rede.
+                Entao clico em "Gostei" em 10 publicacoes
