@@ -29,3 +29,15 @@ end
 Entao('clico em {string} em {int} publicacoes') do |gostei, num|
     @reacao.gostei(gostei, num)
 end
+
+Quando('clico para escrever uma publicação') do
+    find('button[class="artdeco-button artdeco-button--muted artdeco-button--4 artdeco-button--tertiary ember-view share-box-feed-entry__trigger"]').click
+end
+  
+Quando('digito a mensagem {string}') do |mensagem|
+    @publicacao.mensagem(mensagem)
+end
+  
+Então('clico para {string}') do |publicar|
+    @publicacao.botao_publicar(publicar)
+end

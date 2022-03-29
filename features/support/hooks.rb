@@ -4,6 +4,8 @@ Before do
     @pesquisar = Pesquisar.new
     @tela = Tela.new
     @reacao = Reacao.new
+    @publicacao = Publicacao.new
+
     page.driver.browser.manage.window.maximize
 end
 
